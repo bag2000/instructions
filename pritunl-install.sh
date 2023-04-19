@@ -1,6 +1,18 @@
 # Install on ubuntu 20.04
 # link to ubuntu https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso
-# Static ip https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-20-04-focal-fossa-desktop-server
+# Static ip:
+# nano /etc/netplan/50-cloud-init.yaml
+# network:
+#   ethernets:
+#     enp0s3:
+#       dhcp4: false
+#       addresses: [192.168.1.202/24]
+#       gateway4: 192.168.1.1
+#       nameservers:
+#         addresses: [8.8.8.8,8.8.4.4,192.168.1.1]
+#   version: 2
+# sudo netplan --debug apply
+
 
 sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
 deb http://repo.pritunl.com/stable/apt focal main
